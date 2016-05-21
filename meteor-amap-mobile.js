@@ -6,6 +6,11 @@ if (!setting) {
 AMapMobileAPI = {};
 
 AMapMobileAPI.configure = function () {
+  if (!Meteor.isCordova) {
+    console.log('AMapMobileAPI only for mobile platform.');
+    return;
+  }
+
   if (device.platform != "Android") {
     AMapPlugin.configure(setting.iOSApiKey, setting.distanceFilter, function (data) {
       console.log('backgroundGeoLocation ios configure success', '');
@@ -23,6 +28,11 @@ AMapMobileAPI.configure = function () {
 }
 
 AMapMobileAPI.start = function () {
+  if (!Meteor.isCordova) {
+    console.log('AMapMobileAPI only for mobile platform.');
+    return;
+  }
+
   if (device.platform != "Android") {
     AMapPlugin.start(
       function () { console.log('backgroundGeoLocation:start success.', ''); },
@@ -33,10 +43,20 @@ AMapMobileAPI.start = function () {
 };
 
 AMapMobileAPI.stop = function (callback) {
+  if (!Meteor.isCordova) {
+    console.log('AMapMobileAPI only for mobile platform.');
+    return;
+  }
+
   AMapPlugin.stop(callback, function () { console.log('backgroundGeoLocation:stop failed.', ''); });
 };
 
 AMapMobileAPI.getLocationWithReGeocode = function (callback, error_callback) {
+  if (!Meteor.isCordova) {
+    console.log('AMapMobileAPI only for mobile platform.');
+    return;
+  }
+
   AMapPlugin.getLocationWithReGeocode(callback, error_callback);
 }
 
