@@ -18,7 +18,7 @@ Package.onUse(function (api) {
 });
 
 Cordova.depends({
-  "com.roadshr.cordova.amapplugin": "file:///Volumes/G/roadshr/amap-phonegap-plugin",
+  "com.roadshr.cordova.amapplugin": "https://github.com/zuizuihao/amap-cordova-plugin.git#b5d63764f4dbc104122c2344fbbe35af43f48b56",
   "cordova-plugin-device": "1.1.2"
 });
 
